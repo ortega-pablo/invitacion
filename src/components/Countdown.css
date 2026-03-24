@@ -1,0 +1,130 @@
+.countdown-section {
+  background: var(--color-dark-mid);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Textura de fondo sutil */
+.countdown-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 50%, rgba(198,167,94,0.03) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Fecha grande como watermark */
+.countdown-bg-year {
+  position: absolute;
+  bottom: -0.1em;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-title);
+  font-size: clamp(10rem, 28vw, 22rem);
+  font-weight: 300;
+  color: rgba(255,255,255,0.04);
+  line-height: 1;
+  white-space: nowrap;
+  pointer-events: none;
+  letter-spacing: 0.06em;
+  user-select: none;
+}
+
+.countdown-inner {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  width: 100%;
+}
+
+.countdown-eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 48px;
+  display: block;
+}
+
+.countdown-grid {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: nowrap;
+}
+
+.count-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 0 clamp(20px, 4vw, 60px);
+  position: relative;
+}
+
+/* Separador vertical entre unidades */
+.count-unit:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 10%;
+  height: 80%;
+  width: 1px;
+  background: rgba(255,255,255,0.1);
+}
+
+.count-value {
+  font-family: var(--font-title);
+  font-size: clamp(4.5rem, 12vw, 9rem);
+  font-weight: 300;
+  color: white;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.count-label {
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+}
+
+.countdown-ended {
+  font-family: var(--font-title);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 300;
+  color: white;
+  font-style: italic;
+}
+
+/* Divider dorado abajo */
+.countdown-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 56px;
+}
+.countdown-divider-line {
+  width: 60px; height: 1px;
+  background: rgba(198,167,94,0.35);
+}
+.countdown-divider-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  opacity: 0.6;
+}
+
+@media (max-width: 600px) {
+  .count-unit { padding: 0 clamp(12px, 5vw, 24px); }
+  .count-unit:not(:last-child)::after { display: none; }
+  .countdown-grid { gap: 0; flex-wrap: wrap; }
+  .count-unit { flex: 1; min-width: 80px; }
+}

@@ -1,0 +1,179 @@
+.gifts-section { background: var(--color-dark-mid); text-align: center; }
+
+.gifts-header { margin-bottom: 48px; }
+.gifts-eyebrow { margin-bottom: 14px; }
+.gifts-heading {
+  font-family: var(--font-title);
+  font-size: clamp(2.8rem,6vw,5rem);
+  font-weight: 300;
+  color: white;
+}
+.gifts-sub { font-size: 0.88rem; color: rgba(255,255,255,0.45); margin-top: 8px; }
+
+.gifts-divider {
+  display: flex; align-items: center; justify-content: center; gap: 14px; margin: 22px 0;
+}
+.gifts-divider-line { width: 60px; height: 1px; background: linear-gradient(to right, transparent, rgba(198,167,94,0.5), transparent); }
+.gifts-divider-icon { font-family: var(--font-title); font-size: 1rem; color: var(--color-gold); }
+
+.gifts-stats {
+  display: inline-flex; align-items: center; gap: 20px;
+  padding: 12px 24px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-full);
+  margin-top: 12px;
+}
+
+.gifts-stat-num {
+  font-family: var(--font-title);
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.7);
+  line-height: 1;
+}
+.gifts-stat-num.available { color: var(--color-gold); }
+
+.gifts-stat-label {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+}
+
+.gifts-stat-sep { width: 1px; height: 28px; background: rgba(255,255,255,0.1); }
+
+/* Grid */
+.gifts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 14px;
+}
+
+.gift-card {
+  background: var(--color-dark);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s ease, border-color 0.3s ease;
+  border-bottom: 2px solid transparent;
+}
+.gift-card:not(.purchased):hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  border-bottom-color: var(--color-gold);
+}
+.gift-card.purchased { opacity: 0.45; }
+
+.gift-card-inner {
+  padding: 24px 22px;
+  display: flex; flex-direction: column; gap: 6px; height: 100%;
+}
+
+.gift-tag {
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  background: rgba(198,167,94,0.1);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  align-self: flex-start;
+}
+
+.gift-name {
+  font-family: var(--font-title);
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: white;
+  line-height: 1.2;
+  margin-top: 4px;
+}
+
+.gift-desc {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.55;
+  flex: 1;
+}
+
+.gift-price {
+  font-family: var(--font-title);
+  font-size: 1.1rem;
+  color: var(--color-gold-light);
+}
+
+.gift-footer { margin-top: 14px; }
+
+.gift-btn { width: 100%; font-size: 0.72rem; padding: 11px 16px; }
+.gift-btn.loading { opacity: 0.7; cursor: not-allowed; }
+
+.gift-purchased-tag {
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  padding: 10px;
+  background: rgba(198,167,94,0.08);
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.gifts-empty {
+  padding: 48px; background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: var(--radius-xl);
+  font-family: var(--font-title);
+  font-size: 1.4rem;
+  color: rgba(255,255,255,0.5);
+}
+
+/* Modal */
+.confirm-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 2000;
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+  animation: fadeIn 0.2s ease;
+}
+
+.confirm-modal {
+  background: var(--color-dark);
+  border: 1px solid rgba(198,167,94,0.2);
+  border-radius: var(--radius-xl);
+  padding: 44px 40px;
+  max-width: 420px; width: 100%;
+  box-shadow: var(--shadow-xl);
+  text-align: center;
+  animation: fadeInUp 0.25s ease;
+}
+
+.confirm-title {
+  font-family: var(--font-title);
+  font-size: 2rem; font-weight: 300; color: white;
+  margin-bottom: 14px;
+}
+
+.confirm-body {
+  font-size: 0.95rem; color: rgba(255,255,255,0.5);
+  line-height: 1.7; margin-bottom: 28px;
+}
+.confirm-body strong { color: var(--color-gold-light); font-weight: 500; }
+
+.confirm-note {
+  display: block; font-size: 0.8rem;
+  color: rgba(255,255,255,0.3); margin-top: 6px;
+}
+
+.confirm-actions { display: flex; gap: 12px; justify-content: center; }
+
+@media (max-width: 480px) {
+  .confirm-modal { padding: 32px 24px; }
+  .confirm-actions { flex-direction: column; }
+  .confirm-actions .btn { width: 100%; }
+}

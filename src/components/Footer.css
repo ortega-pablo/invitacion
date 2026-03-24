@@ -1,0 +1,98 @@
+.footer {
+  background: var(--color-dark);
+  padding: 80px 40px 44px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 1px; height: 60px;
+  background: linear-gradient(to bottom, rgba(198,167,94,0.4), transparent);
+}
+
+.footer-names {
+  font-family: var(--font-title);
+  font-size: clamp(3.5rem, 10vw, 7rem);
+  font-weight: 300;
+  color: white;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  margin-bottom: 20px;
+  margin-top: 32px;
+}
+
+.footer-amp { color: var(--color-gold); font-style: italic; }
+
+.footer-divider {
+  display: flex; align-items: center; justify-content: center; gap: 14px; margin: 0 auto;
+}
+.footer-divider-line { width: 60px; height: 1px; background: linear-gradient(to right, transparent, rgba(198,167,94,0.35), transparent); }
+.footer-divider-icon { font-family: var(--font-title); font-size: 1rem; color: var(--color-gold); opacity: 0.5; font-style: italic; }
+
+.footer-date {
+  font-family: var(--font-title);
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.35);
+  text-transform: capitalize;
+  letter-spacing: 0.06em;
+  margin-top: 18px;
+}
+
+.footer-venue {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.2);
+  margin-top: 8px;
+}
+
+.footer-hr {
+  width: 40px; height: 1px;
+  background: rgba(255,255,255,0.06);
+  margin: 28px auto;
+}
+
+.footer-message {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.4);
+}
+.footer-message strong { color: rgba(255,255,255,0.6); font-weight: 500; }
+
+.footer-hashtag {
+  font-family: var(--font-title);
+  font-size: 1rem;
+  color: var(--color-gold);
+  font-style: italic;
+  opacity: 0.65;
+  margin-top: 6px;
+}
+
+.footer-copy {
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.12);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-top: 24px;
+}
+
+/* Background watermark */
+.footer-bg-text {
+  position: absolute;
+  bottom: -0.1em; left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-title);
+  font-size: clamp(5rem, 20vw, 14rem);
+  font-weight: 300;
+  color: rgba(255,255,255,0.02);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  line-height: 1;
+}

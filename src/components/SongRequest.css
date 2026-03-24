@@ -1,0 +1,47 @@
+.songs-section { background: var(--color-dark); text-align: center; }
+
+.songs-header { margin-bottom: 48px; }
+.songs-eyebrow { color: rgba(255,255,255,0.4) !important; margin-bottom: 14px; }
+.songs-heading {
+  font-family: var(--font-title);
+  font-size: clamp(2.4rem,5vw,4rem);
+  font-weight: 300;
+  color: white;
+}
+.songs-sub {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.45);
+  margin-top: 10px;
+}
+
+.songs-divider {
+  display: flex; align-items: center; justify-content: center; gap: 14px; margin: 22px 0 32px;
+}
+.songs-divider-line { width: 60px; height: 1px; background: linear-gradient(to right, transparent, rgba(198,167,94,0.45), transparent); }
+.songs-divider-icon { font-family: var(--font-title); font-size: 1rem; color: var(--color-gold); opacity: 0.65; }
+
+.songs-form {
+  max-width: 560px; margin: 0 auto;
+  display: flex; flex-direction: column; gap: 18px; text-align: left;
+}
+
+.songs-fields {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+}
+.songs-link-group { grid-column: span 2; }
+
+.form-optional {
+  font-weight: 400;
+  color: rgba(255,255,255,0.25);
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.68rem;
+}
+
+.songs-submit { align-self: center; min-width: 200px; }
+.songs-submit.loading { opacity: 0.7; cursor: not-allowed; }
+
+@media (max-width: 480px) {
+  .songs-fields { grid-template-columns: 1fr; }
+  .songs-link-group { grid-column: span 1; }
+}

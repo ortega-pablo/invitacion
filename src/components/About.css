@@ -1,0 +1,172 @@
+.about-section {
+  background: var(--color-dark);
+  padding: 0;
+}
+
+.about-split {
+  width: 100%;
+  min-height: 100dvh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* Foto: ocupa toda la altura */
+.about-photo-side {
+  position: relative;
+  overflow: hidden;
+  min-height: 100dvh;
+}
+
+.about-photo-side img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.8s ease;
+}
+
+.about-photo-side::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(30,35,16,0) 60%, rgba(30,35,16,0.6) 100%);
+}
+
+.about-photo-side:hover img { transform: scale(1.03); }
+
+/* Línea de acento dorado vertical */
+.about-photo-accent {
+  position: absolute;
+  top: 12%;
+  right: 0;
+  width: 2px;
+  height: 76%;
+  background: linear-gradient(to bottom, transparent, var(--color-gold), transparent);
+  z-index: 2;
+  opacity: 0.5;
+}
+
+/* Lado de texto */
+.about-text-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(48px, 8vw, 100px) clamp(36px, 6vw, 80px);
+  position: relative;
+}
+
+.about-text-inner {
+  max-width: 480px;
+}
+
+.about-pre {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 20px;
+  display: block;
+}
+
+.about-title {
+  font-family: var(--font-title);
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 300;
+  color: white;
+  line-height: 1;
+  margin-bottom: 0;
+}
+
+.about-title-amp {
+  color: var(--color-gold);
+  font-style: italic;
+}
+
+.about-divider {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 28px 0;
+}
+.about-divider-line {
+  width: 48px; height: 1px;
+  background: rgba(198,167,94,0.4);
+}
+.about-divider-icon {
+  font-family: var(--font-title);
+  font-size: 1rem;
+  color: var(--color-gold);
+  font-style: italic;
+  opacity: 0.8;
+}
+
+.about-body {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.85;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 36px;
+}
+
+.about-date-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 22px;
+  border: 1px solid rgba(198,167,94,0.25);
+  border-radius: var(--radius-full);
+  background: rgba(198,167,94,0.05);
+}
+
+.about-date-pill-icon {
+  color: var(--color-gold);
+  opacity: 0.8;
+  flex-shrink: 0;
+}
+
+.about-date-pill-text {
+  font-family: var(--font-title);
+  font-size: 1rem;
+  color: rgba(255,255,255,0.75);
+  text-transform: capitalize;
+  letter-spacing: 0.04em;
+}
+
+/* Número decorativo */
+.about-bg-number {
+  position: absolute;
+  bottom: 32px;
+  right: 40px;
+  font-family: var(--font-title);
+  font-size: clamp(5rem, 14vw, 10rem);
+  font-weight: 300;
+  color: rgba(255,255,255,0.03);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .about-split {
+    grid-template-columns: 1fr;
+  }
+  .about-photo-side {
+    min-height: 55vw;
+    max-height: 480px;
+  }
+  .about-photo-side::after {
+    background: linear-gradient(to bottom, rgba(30,35,16,0) 60%, rgba(30,35,16,0.7) 100%);
+  }
+  .about-photo-accent { display: none; }
+  .about-text-side {
+    padding: 48px 28px 56px;
+  }
+  .about-text-inner { max-width: 100%; }
+  .about-title { font-size: clamp(2.8rem, 10vw, 4.5rem); }
+}

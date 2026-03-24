@@ -1,0 +1,230 @@
+.details-section {
+  background: var(--color-dark);
+  text-align: center;
+}
+
+.details-header {
+  margin-bottom: 60px;
+}
+
+.details-header .section-eyebrow { margin-bottom: 14px; }
+
+.details-heading {
+  font-family: var(--font-title);
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 300;
+  color: white;
+  line-height: 1.05;
+}
+
+.details-divider {
+  display: flex; align-items: center; justify-content: center; gap: 14px; margin: 24px 0;
+}
+.details-divider-line { width: 60px; height: 1px; background: linear-gradient(to right, transparent, rgba(198,167,94,0.5), transparent); }
+.details-divider-icon { font-family: var(--font-title); font-size: 1.1rem; color: var(--color-gold); font-style: italic; }
+
+/* Grid de 4 tarjetas */
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  margin-bottom: 3px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+}
+
+.detail-card {
+  background: var(--color-dark-mid);
+  padding: 48px 28px;
+  text-align: center;
+  transition: background var(--transition-base);
+  cursor: default;
+}
+
+.detail-card:hover { background: rgba(198,167,94,0.06); }
+
+.detail-icon-wrap {
+  width: 52px; height: 52px;
+  border: 1px solid rgba(198,167,94,0.25);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 20px;
+  color: var(--color-gold);
+  transition: border-color var(--transition-base), background var(--transition-base);
+}
+.detail-card:hover .detail-icon-wrap {
+  border-color: rgba(198,167,94,0.5);
+  background: rgba(198,167,94,0.07);
+}
+
+.detail-eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 10px;
+  display: block;
+  opacity: 0.7;
+}
+
+.detail-title {
+  font-family: var(--font-title);
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 300;
+  color: white;
+  margin-bottom: 6px;
+  line-height: 1.15;
+}
+
+.detail-sub {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.35);
+  line-height: 1.5;
+}
+
+/* Ticket */
+.ticket-card {
+  background: var(--color-dark-mid);
+  border: 1px solid rgba(198,167,94,0.12);
+  border-radius: var(--radius-xl);
+  padding: 48px 56px;
+  margin-top: 24px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+}
+
+.ticket-card::before {
+  content: '';
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 260px; height: 260px;
+  border-radius: 50%;
+  background: rgba(198,167,94,0.03);
+}
+
+.ticket-inner {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.ticket-left { flex: 1; text-align: left; }
+
+.ticket-eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 10px;
+  display: block;
+}
+
+.ticket-amount {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.ticket-currency {
+  font-family: var(--font-title);
+  font-size: 2rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.7);
+}
+
+.ticket-price {
+  font-family: var(--font-title);
+  font-size: clamp(4rem, 8vw, 6rem);
+  font-weight: 300;
+  color: white;
+}
+
+.ticket-unit {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.1em;
+  padding-bottom: 4px;
+}
+
+.ticket-child-note {
+  font-size: 0.8rem;
+  color: var(--color-gold-light);
+  margin-top: 4px;
+  font-family: var(--font-body);
+  font-weight: 300;
+}
+
+.ticket-sep {
+  width: 1px;
+  height: 120px;
+  background: rgba(255,255,255,0.08);
+  margin: 0 clamp(28px, 5vw, 64px);
+  flex-shrink: 0;
+}
+
+.ticket-right { flex: 1; text-align: left; }
+
+.ticket-info-item { margin-bottom: 14px; }
+
+.ticket-info-label {
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 3px;
+  display: block;
+}
+
+.ticket-info-value {
+  font-family: var(--font-title);
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.85);
+}
+
+.ticket-alias {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--color-gold-light);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  margin-top: 2px;
+  display: block;
+}
+
+.ticket-cbu {
+  font-family: monospace;
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.04em;
+  margin-top: 2px;
+  display: block;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .details-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .details-grid { grid-template-columns: 1fr; }
+  .ticket-inner { flex-direction: column; gap: 28px; text-align: center; }
+  .ticket-left, .ticket-right { text-align: center; width: 100%; }
+  .ticket-amount { justify-content: center; }
+  .ticket-sep { width: 100%; height: 1px; margin: 0; }
+  .ticket-card { padding: 36px 24px; }
+  .detail-card { padding: 36px 20px; }
+}
