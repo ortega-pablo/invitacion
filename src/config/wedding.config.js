@@ -37,17 +37,17 @@ export const weddingConfig = {
   // ─────────────────────────────────────────────
   event: {
     // Fecha del casamiento (formato ISO: YYYY-MM-DD)
-    date: "2026-12-05",
+    date: "2026-10-10",
     // Hora de inicio de la ceremonia
-    ceremonyTime: "19:00",
+    ceremonyTime: "20:30",
     // Hora de inicio del festejo (recepción)
-    receptionTime: "21:00",
+    receptionTime: "23:00",
     // Nombre del salón / lugar
-    venueName: "Nombre del Salón",
+    venueName: "Estancia Ludmila",
     // Dirección completa
-    venueAddress: "Dirección del Salón, Ciudad, Argentina",
+    venueAddress: "Callejón Villanueva 1023, Luján de Cuyo, Mendoza",
     // Texto corto para mostrar en la tarjeta
-    venueShort: "Nombre del Salón · Ciudad",
+    venueShort: "Estancia Ludmila · Mendoza",
     // Fecha límite de confirmación
     rsvpDeadline: "31 de agosto de 2026",
   },
@@ -77,7 +77,7 @@ export const weddingConfig = {
     // Generá tu link en: https://calendar.google.com/calendar/r/eventedit
     // O usá este formato:
     // https://calendar.google.com/calendar/render?action=TEMPLATE&text=NOMBRE&dates=INICIO/FIN&details=DESCRIPCION&location=LUGAR
-    url: "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Casamiento+Pablo+%26+Camila&dates=20261205T220000Z/20261206T060000Z&details=¡Celebremos+juntos!&location=Nombre+del+Salón,+Argentina",
+    url: "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Casamiento+Pablo+%26+Camila&dates=20261010T230000Z/20261011T070000Z&details=¡Celebremos+juntos!&location=Estancia+Ludmila,+Callejón+Villanueva+1023,+Luján+de+Cuyo,+Mendoza",
   },
 
   // ─────────────────────────────────────────────
@@ -85,7 +85,7 @@ export const weddingConfig = {
   // ─────────────────────────────────────────────
   maps: {
     // Reemplazá con el link de Google Maps al lugar
-    url: "https://maps.google.com/?q=Nombre+del+Salón+Argentina",
+    url: "https://maps.app.goo.gl/mZA6imVviLXA3Fud6?g_st=aw",
     // Embed URL para el mapa integrado (opcional)
     embedUrl: "",
   },
@@ -96,7 +96,7 @@ export const weddingConfig = {
   rsvpSheet: {
     // URL de tu Google Apps Script (web app) para enviar el form
     // Ver: /docs/GOOGLE_APPS_SCRIPT.md para instrucciones de configuración
-    scriptUrl: "https://script.google.com/macros/s/TU_SCRIPT_ID_RSVP/exec",
+    scriptUrl: "https://script.google.com/macros/s/AKfycbwYgiwv6GNAhuD5Nr3p1nvm277c1g0dqfxk8EhDIItb0yyiD_Hu0hWE49iBh7d_NbcMAQ/exec",
     // URL directa al Google Sheet (para el admin)
     sheetUrl: "https://docs.google.com/spreadsheets/d/TU_SHEET_ID_RSVP",
   },
@@ -105,7 +105,7 @@ export const weddingConfig = {
   // 🎵 GOOGLE SHEETS – SUGERENCIAS DE CANCIONES
   // ─────────────────────────────────────────────
   songsSheet: {
-    scriptUrl: "https://script.google.com/macros/s/TU_SCRIPT_ID_SONGS/exec",
+    scriptUrl: "https://script.google.com/macros/s/AKfycbzgiiTd7nocQAEtnLm1qbqfDDdOVwbE5staBnAKggLz1n6VtHCkIvlViJl2tYoY4xo/exec",
     sheetUrl: "https://docs.google.com/spreadsheets/d/TU_SHEET_ID_SONGS",
   },
 
@@ -114,7 +114,7 @@ export const weddingConfig = {
   // ─────────────────────────────────────────────
   giftsSheet: {
     // Script URL para leer/marcar regalos
-    scriptUrl: "https://script.google.com/macros/s/TU_SCRIPT_ID_GIFTS/exec",
+    scriptUrl: "https://script.google.com/macros/s/AKfycbx7OlDi-6DYIf9WxIEdtFcMGyzB0jM7ID3ot5CUBQk_vj5nN3w65bqJ9kO2QR-tE_xP/exec",
     sheetUrl: "https://docs.google.com/spreadsheets/d/TU_SHEET_ID_GIFTS",
     // Lista de regalos (también visible en el Sheet)
     // Campos: id, name, description, price, imageUrl (opcional), purchased
@@ -191,9 +191,9 @@ export const weddingConfig = {
   // ─────────────────────────────────────────────
   dressCode: {
     title: "Dress Code",
-    description: "Formal. Les pedimos evitar el blanco y el negro.",
-    suggestedColors: ["#D4B896", "#8B9A6B", "#C4A882", "#B5C4A0"],
-    colorLabels: ["Arena", "Sage", "Camel", "Verde suave"],
+    description: "El evento es de etiqueta formal y tiene una paleta de colores como temática. Te invitamos a inspirarte en estos tonos para tu vestimenta, aunque no es obligatorio.",
+    suggestedColors: ["#4E5B31", "#E8DFC9", "#8B6B4A", "#C96A3D"],
+    colorLabels: ["Verde olivo", "Arena", "Chocolate", "Terracota"],
   },
 
   // ─────────────────────────────────────────────
@@ -247,12 +247,12 @@ export const weddingConfig = {
   // 📝 TEXTOS PERSONALIZABLES
   // ─────────────────────────────────────────────
   texts: {
-    quoteText: "Todos somos mortales, hasta el primer beso y la segunda copa de vino.",
+    quoteText: "Dicen que a los 15 años son las bodas de cristal, nosotros preferimos que sean las bodas de '¡Por fin, carajo!'.",
     heroTagline: "¡Nos casamos!",
     heroSubtitle: "Queremos compartir este día tan especial con vos",
-    aboutTitle: "Nuestra historia",
+    aboutTitle: "El plan",
     aboutText:
-      "Después de tantos momentos compartidos, queremos dar el paso más importante de nuestras vidas rodeados de las personas que más amamos. Gracias por ser parte de este camino.",
+      "Firmamos, nos emocionamos, y festejamos. Primero lo oficial, después la celebración. Un mismo día para decir que sí y pasarla increíble con todos ustedes.",
     ceremonyLabel: "Ceremonia",
     receptionLabel: "Festejo",
     rsvpTitle: "Confirmá tu asistencia",

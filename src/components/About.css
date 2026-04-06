@@ -93,15 +93,13 @@
   margin: 28px 0;
 }
 .about-divider-line {
-  width: 48px; height: 1px;
-  background: rgba(198,167,94,0.4);
+  width: 120px; height: 2px;
+  background: linear-gradient(to right, transparent, rgba(198,167,94,0.5), transparent);
 }
 .about-divider-icon {
-  font-family: var(--font-title);
-  font-size: 1rem;
+  font-size: 0.7rem;
   color: var(--color-gold);
-  font-style: italic;
-  opacity: 0.8;
+  opacity: 0.6;
 }
 
 .about-body {
@@ -133,7 +131,6 @@
   font-family: var(--font-title);
   font-size: 1rem;
   color: rgba(255,255,255,0.75);
-  text-transform: capitalize;
   letter-spacing: 0.04em;
 }
 
@@ -167,6 +164,8 @@
   .about-text-side {
     padding: 48px 28px 56px;
   }
-  .about-text-inner { max-width: 100%; }
+  .about-text-inner { max-width: 100%; text-align: center; }
   .about-title { font-size: clamp(2.8rem, 10vw, 4.5rem); }
+  .about-divider { justify-content: center; }
+  .about-date-pill { align-self: center; }
 }

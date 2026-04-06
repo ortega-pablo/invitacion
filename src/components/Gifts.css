@@ -13,8 +13,8 @@
 .gifts-divider {
   display: flex; align-items: center; justify-content: center; gap: 14px; margin: 22px 0;
 }
-.gifts-divider-line { width: 60px; height: 1px; background: linear-gradient(to right, transparent, rgba(198,167,94,0.5), transparent); }
-.gifts-divider-icon { font-family: var(--font-title); font-size: 1rem; color: var(--color-gold); }
+.gifts-divider-line { width: 120px; height: 2px; background: linear-gradient(to right, transparent, rgba(198,167,94,0.5), transparent); }
+.gifts-divider-icon { font-size: 0.7rem; color: var(--color-gold); opacity: 0.6; }
 
 .gifts-stats {
   display: inline-flex; align-items: center; gap: 20px;
@@ -106,6 +106,17 @@
   color: var(--color-gold-light);
 }
 
+.gift-link {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+.gift-link:hover { opacity: 1; }
+
 .gift-footer { margin-top: 14px; }
 
 .gift-btn { width: 100%; font-size: 0.72rem; padding: 11px 16px; }
@@ -176,4 +187,60 @@
   .confirm-modal { padding: 32px 24px; }
   .confirm-actions { flex-direction: column; }
   .confirm-actions .btn { width: 100%; }
+}
+
+/* Página de regalos */
+.gifts-page {
+  min-height: 100dvh;
+  background: var(--color-dark);
+}
+
+.gifts-page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background: rgba(30,35,16,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(198,167,94,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.gifts-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  transition: color 0.2s ease;
+}
+.gifts-back-link:hover { color: var(--color-gold); }
+
+.gifts-page-brand {
+  font-family: var(--font-title);
+  font-size: 1.1rem;
+  font-style: italic;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.04em;
+}
+
+.gifts-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 60px;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.4);
+}
+
+@media (max-width: 600px) {
+  .gifts-page-header { padding: 16px 20px; }
+  .gifts-page-brand { display: none; }
 }

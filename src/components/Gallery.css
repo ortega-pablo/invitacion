@@ -16,8 +16,8 @@
 .gallery-divider {
   display: flex; align-items: center; justify-content: center; gap: 14px; margin: 22px 0;
 }
-.gallery-divider-line { width: 60px; height: 1px; background: linear-gradient(to right, transparent, rgba(198,167,94,0.5), transparent); }
-.gallery-divider-icon { font-family: var(--font-title); font-size: 1rem; color: var(--color-gold); font-style: italic; opacity: 0.7; }
+.gallery-divider-line { width: 120px; height: 2px; background: linear-gradient(to right, transparent, rgba(198,167,94,0.5), transparent); }
+.gallery-divider-icon { font-size: 0.7rem; color: var(--color-gold); opacity: 0.6; }
 
 /* Mosaic grid */
 .gallery-grid {

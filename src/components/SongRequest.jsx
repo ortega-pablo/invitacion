@@ -22,7 +22,7 @@ export default function SongRequest({ config }) {
     try {
       await fetch(songsSheet.scriptUrl, {
         method: 'POST', mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'text/plain' },
         body: JSON.stringify({ artist: form.artist.trim(), song: form.song.trim(), link: form.link.trim(), submittedAt: new Date().toISOString() }),
       });
       setStatus('success');
@@ -45,7 +45,7 @@ export default function SongRequest({ config }) {
           <p className="songs-sub">{texts.songsSubtitle}</p>
           <div className="songs-divider">
             <div className="songs-divider-line" />
-            <span className="songs-divider-icon">🎵</span>
+            <span className="songs-divider-icon">✦</span>
             <div className="songs-divider-line" />
           </div>
         </div>

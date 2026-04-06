@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getTimeRemaining } from '../utils/date';
+import { getTimeRemaining, formatDateShort } from '../utils/date';
 import { useReveal } from '../hooks/useReveal';
 import './Countdown.css';
 
@@ -12,7 +12,7 @@ function CountUnit({ value, label }) {
   );
 }
 
-export default function Countdown({ eventDate }) {
+export default function Countdown({ eventDate, venueShort }) {
   const [time, setTime] = useState(getTimeRemaining(eventDate));
   const ref = useReveal();
   const year = eventDate.split('-')[0];
@@ -23,7 +23,7 @@ export default function Countdown({ eventDate }) {
   }, [eventDate]);
 
   return (
-    <section className="countdown-section section" id="countdown">
+    <section className="countdown-section section linen-texture-dark" id="countdown">
       <div className="countdown-bg-year">{year}</div>
       <div ref={ref} className="countdown-inner reveal">
         <span className="countdown-eyebrow">Faltan</span>
@@ -41,9 +41,14 @@ export default function Countdown({ eventDate }) {
 
         <div className="countdown-divider">
           <div className="countdown-divider-line" />
-          <div className="countdown-divider-dot" />
+          <span className="countdown-divider-icon">✦</span>
           <div className="countdown-divider-line" />
         </div>
+
+        <div className="countdown-date-row">
+          <span className="countdown-date-text">{formatDateShort(eventDate)}</span>
+        </div>
+        {venueShort && <p className="countdown-venue">{venueShort}</p>}
       </div>
     </section>
   );

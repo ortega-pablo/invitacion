@@ -3,7 +3,16 @@ import { useReveal } from '../hooks/useReveal';
 import { showToast } from '../utils/toast';
 import './RSVP.css';
 
-const emptyGuest = () => ({ name: '', dni: '' });
+const DIETARY_OPTIONS = [
+  'Ninguna',
+  'Vegetariano',
+  'Vegano',
+  'Celíaco',
+  'Sin TACC',
+  'Otra',
+];
+
+const emptyGuest = () => ({ firstName: '', lastName: '', dni: '', type: 'adulto', dietary: 'Ninguna', dietaryOther: '' });
 
 export default function RSVP({ config }) {
   const { rsvpSheet, event, texts, ticket } = config;
@@ -18,20 +27,28 @@ export default function RSVP({ config }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (guests.some((g) => !g.name.trim() || !g.dni.trim())) {
-      showToast('Por favor completá nombre y DNI de todos', 'error');
+    if (guests.some((g) => !g.firstName.trim() || !g.lastName.trim() || !g.dni.trim())) {
+      showToast('Por favor completá nombre, apellido y DNI de todos', 'error');
+      return;
+    }
+    if (guests.some((g) => g.dietary === 'Otra' && !g.dietaryOther.trim())) {
+      showToast('Por favor especificá la restricción alimentaria', 'error');
       return;
     }
     setStatus('loading');
     try {
       await fetch(rsvpSheet.scriptUrl, {
         method: 'POST', mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'text/plain' },
         body: JSON.stringify({
-          event: event.venueName, eventDate: event.date,
           submittedAt: new Date().toISOString(),
-          guests: guests.map((g) => ({ name: g.name.trim(), dni: g.dni.trim() })),
-          totalGuests: guests.length,
+          guests: guests.map((g) => ({
+            firstName: g.firstName.trim().toUpperCase(),
+            lastName: g.lastName.trim().toUpperCase(),
+            dni: g.dni.trim(),
+            type: g.type,
+            dietary: g.dietary === 'Otra' ? g.dietaryOther.trim() : g.dietary,
+          })),
         }),
       });
       setStatus('success');
@@ -88,10 +105,16 @@ export default function RSVP({ config }) {
                 </div>
                 <div className="rsvp-guest-fields">
                   <div className="form-group">
-                    <label className="form-label form-label-light" htmlFor={`name-${i}`}>Nombre completo</label>
-                    <input id={`name-${i}`} className="form-input form-input-dark" type="text"
-                      placeholder="María González" value={guest.name}
-                      onChange={(e) => updateGuest(i, 'name', e.target.value)} required />
+                    <label className="form-label form-label-light" htmlFor={`firstName-${i}`}>Nombre</label>
+                    <input id={`firstName-${i}`} className="form-input form-input-dark" type="text"
+                      placeholder="María" value={guest.firstName}
+                      onChange={(e) => updateGuest(i, 'firstName', e.target.value)} required />
+                  </div>
+                  <div className="form-group">
+                    <label className="form-label form-label-light" htmlFor={`lastName-${i}`}>Apellido</label>
+                    <input id={`lastName-${i}`} className="form-input form-input-dark" type="text"
+                      placeholder="González" value={guest.lastName}
+                      onChange={(e) => updateGuest(i, 'lastName', e.target.value)} required />
                   </div>
                   <div className="form-group">
                     <label className="form-label form-label-light" htmlFor={`dni-${i}`}>DNI</label>
@@ -99,6 +122,31 @@ export default function RSVP({ config }) {
                       placeholder="30.123.456" value={guest.dni}
                       onChange={(e) => updateGuest(i, 'dni', e.target.value)} required inputMode="numeric" />
                   </div>
+                  <div className="form-group">
+                    <label className="form-label form-label-light" htmlFor={`type-${i}`}>Tipo</label>
+                    <select id={`type-${i}`} className="form-input form-input-dark"
+                      value={guest.type} onChange={(e) => updateGuest(i, 'type', e.target.value)}>
+                      <option value="adulto">Adulto</option>
+                      <option value="niño">Niño</option>
+                    </select>
+                  </div>
+                  <div className="form-group rsvp-dietary-field">
+                    <label className="form-label form-label-light" htmlFor={`dietary-${i}`}>Restricción alimentaria</label>
+                    <select id={`dietary-${i}`} className="form-input form-input-dark"
+                      value={guest.dietary} onChange={(e) => updateGuest(i, 'dietary', e.target.value)}>
+                      {DIETARY_OPTIONS.map((opt) => (
+                        <option key={opt} value={opt}>{opt}</option>
+                      ))}
+                    </select>
+                  </div>
+                  {guest.dietary === 'Otra' && (
+                    <div className="form-group rsvp-dietary-field">
+                      <label className="form-label form-label-light" htmlFor={`dietaryOther-${i}`}>Especificá cuál</label>
+                      <input id={`dietaryOther-${i}`} className="form-input form-input-dark" type="text"
+                        placeholder="Describí tu restricción..." value={guest.dietaryOther}
+                        onChange={(e) => updateGuest(i, 'dietaryOther', e.target.value)} required />
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
@@ -112,9 +160,14 @@ export default function RSVP({ config }) {
           </button>
 
           <div className="rsvp-summary">
-            <span>{guests.length} {guests.length === 1 ? 'persona' : 'personas'}</span>
+            <span>
+              {guests.filter((g) => g.type === 'adulto').length} {guests.filter((g) => g.type === 'adulto').length === 1 ? 'adulto' : 'adultos'}
+              {guests.filter((g) => g.type === 'niño').length > 0 && (
+                <> · {guests.filter((g) => g.type === 'niño').length} {guests.filter((g) => g.type === 'niño').length === 1 ? 'niño' : 'niños'}</>
+              )}
+            </span>
             <span className="rsvp-total">
-              {ticket.currency} {guests.length * ticket.adultPrice}
+              {ticket.currency} {guests.filter((g) => g.type === 'adulto').length * ticket.adultPrice + guests.filter((g) => g.type === 'niño').length * ticket.childPrice}
             </span>
           </div>
 

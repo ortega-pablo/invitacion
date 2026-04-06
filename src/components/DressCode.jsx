@@ -6,7 +6,7 @@ export default function DressCode({ config }) {
   const ref = useReveal();
 
   return (
-    <section id="dresscode" className="dresscode-section section">
+    <section id="dresscode" className="dresscode-section section linen-texture-dark">
       <div ref={ref} className="dresscode-inner reveal">
         <span className="section-eyebrow dresscode-eyebrow">Indumentaria</span>
         <h2 className="dresscode-heading">{dressCode.title}</h2>
@@ -38,7 +38,7 @@ export default function DressCode({ config }) {
             <circle cx="12" cy="12" r="10"/>
             <line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
           </svg>
-          Por favor evitá el blanco y el negro
+          Te pedimos por favor evitar el color blanco en vestidos
         </div>
       </div>
     </section>

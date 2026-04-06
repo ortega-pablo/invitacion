@@ -1,16 +1,8 @@
 .quote-section {
-  background: var(--color-dark);
-  padding: 80px 40px;
+  background-color: var(--color-secondary);
+  padding: 100px 40px;
   position: relative;
   overflow: hidden;
-}
-
-.quote-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at 50% 50%, rgba(198,167,94,0.04) 0%, transparent 60%);
-  pointer-events: none;
 }
 
 .quote-inner {
@@ -22,33 +14,35 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 0;
 }
 
 .quote-mark {
-  width: 36px;
-  height: 32px;
-  color: var(--color-gold);
-  opacity: 0.5;
-  flex-shrink: 0;
+  font-family: var(--font-title);
+  font-size: 3.5rem;
+  line-height: 1;
+  color: var(--color-primary);
+  opacity: 0.3;
+  user-select: none;
 }
 
 .quote-close {
-  transform: rotate(180deg);
+  /* No rotar — ya es la comilla de cierre */
 }
 
 .quote-text {
   font-family: var(--font-title);
   font-size: clamp(1.4rem, 3.5vw, 2rem);
-  font-weight: 300;
+  font-weight: 400;
   font-style: italic;
-  color: rgba(255,255,255,0.55);
+  color: var(--color-text);
   line-height: 1.7;
   letter-spacing: 0.02em;
   max-width: 520px;
+  padding: 8px 0;
 }
 
 @media (max-width: 600px) {
   .quote-section { padding: 60px 24px; }
-  .quote-mark { width: 28px; height: 24px; }
+  .quote-mark { font-size: 2.5rem; }
 }

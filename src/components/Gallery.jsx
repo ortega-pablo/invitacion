@@ -45,8 +45,7 @@ export default function Gallery({ config }) {
       <section id="gallery" className="gallery-section section">
         <div className="container">
           <div ref={titleRef} className="gallery-header reveal">
-            <span className="section-eyebrow gallery-eyebrow">Momentos compartidos</span>
-            <h2 className="gallery-heading">Nuestra galería</h2>
+            <h2 className="gallery-heading">Momentos compartidos</h2>
             <div className="gallery-divider">
               <div className="gallery-divider-line" />
               <span className="gallery-divider-icon">✦</span>

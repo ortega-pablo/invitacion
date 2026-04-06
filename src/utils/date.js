@@ -8,7 +8,8 @@
  * @returns {{ days, hours, minutes, seconds, total }}
  */
 export function getTimeRemaining(targetDate) {
-  const total = Date.parse(targetDate) - Date.now();
+  // Forzar zona horaria Argentina (UTC-3)
+  const total = Date.parse(targetDate + 'T00:00:00-03:00') - Date.now();
 
   if (total <= 0) {
     return { days: 0, hours: 0, minutes: 0, seconds: 0, total: 0 };
@@ -29,12 +30,12 @@ export function getTimeRemaining(targetDate) {
  */
 export function formatDateLong(dateStr) {
   const date = new Date(dateStr + 'T12:00:00');
-  return date.toLocaleDateString('es-AR', {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
+  const weekday = date.toLocaleDateString('es-AR', { weekday: 'long' });
+  const day = date.getDate();
+  const month = date.toLocaleDateString('es-AR', { month: 'long' });
+  const year = date.getFullYear();
+  const capitalized = weekday.charAt(0).toUpperCase() + weekday.slice(1);
+  return `${capitalized}, ${day} de ${month} de ${year}`;
 }
 
 /**

@@ -39,7 +39,7 @@
 
 .countdown-eyebrow {
   font-family: var(--font-body);
-  font-size: 0.7rem;
+  font-size: 0.9rem;
   font-weight: 600;
   letter-spacing: 0.3em;
   text-transform: uppercase;
@@ -72,8 +72,8 @@
   right: 0;
   top: 10%;
   height: 80%;
-  width: 1px;
-  background: rgba(255,255,255,0.1);
+  width: 2px;
+  background: rgba(255,255,255,0.15);
 }
 
 .count-value {
@@ -112,19 +112,41 @@
   margin-top: 56px;
 }
 .countdown-divider-line {
-  width: 60px; height: 1px;
-  background: rgba(198,167,94,0.35);
+  width: 120px; height: 2px;
+  background: linear-gradient(to right, transparent, rgba(198,167,94,0.5), transparent);
 }
-.countdown-divider-dot {
-  width: 5px; height: 5px;
-  border-radius: 50%;
-  background: var(--color-gold);
+.countdown-divider-icon {
+  font-size: 0.7rem;
+  color: var(--color-gold);
   opacity: 0.6;
 }
 
+.countdown-date-row {
+  margin-top: 32px;
+}
+.countdown-date-text {
+  font-family: var(--font-title);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 400;
+  color: rgba(255,255,255,0.85);
+  letter-spacing: 0.22em;
+}
+.countdown-venue {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-top: 10px;
+}
+
 @media (max-width: 600px) {
-  .count-unit { padding: 0 clamp(12px, 5vw, 24px); }
+  .countdown-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+  .count-unit { padding: 0; }
   .count-unit:not(:last-child)::after { display: none; }
-  .countdown-grid { gap: 0; flex-wrap: wrap; }
-  .count-unit { flex: 1; min-width: 80px; }
 }

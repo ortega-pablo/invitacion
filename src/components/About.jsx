@@ -22,12 +22,10 @@ export default function About({ config }) {
         {/* Texto derecha */}
         <div className="about-text-side">
           <div className="about-text-inner">
-            <span className="about-pre reveal reveal-delay-1">Nuestra historia</span>
+            <span className="about-pre reveal reveal-delay-1">El evento</span>
 
             <h2 className="about-title reveal reveal-delay-2">
-              {couple.person1.firstName}
-              <span className="about-title-amp"> &amp; </span>
-              {couple.person2.firstName}
+              El plan es así
             </h2>
 
             <div className="about-divider reveal reveal-delay-3">

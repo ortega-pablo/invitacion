@@ -6,12 +6,12 @@ export default function Location({ config }) {
   const ref = useReveal();
 
   return (
-    <section id="location" className="location-section section">
+    <section id="location" className="location-section section linen-texture-dark">
       <div className="container">
         <div ref={ref} className="reveal">
           <div className="location-header">
             <span className="section-eyebrow location-eyebrow section-eyebrow-light">{texts.mapTitle}</span>
-            <h2 className="location-heading">Encontranos aquí</h2>
+            <h2 className="location-heading">¿Dónde nos encontramos?</h2>
             <div className="location-divider">
               <div className="location-divider-line" />
               <span className="location-divider-icon">✦</span>
@@ -31,27 +31,20 @@ export default function Location({ config }) {
                 <div className="location-time-block">
                   <span className="location-time-label">
                     <span className="location-time-dot dot-ceremony" />
-                    Ceremonia
+                    Inicio
                   </span>
-                  <span className="location-time-value">{event.ceremonyTime} hs</span>
+                  <span className="location-time-value">20:00 hs</span>
                 </div>
                 <div className="location-time-block">
                   <span className="location-time-label">
                     <span className="location-time-dot dot-reception" />
-                    Festejo
+                    Ceremonia
                   </span>
-                  <span className="location-time-value">{event.receptionTime} hs</span>
+                  <span className="location-time-value">{event.ceremonyTime} hs</span>
                 </div>
               </div>
 
               <div className="location-actions">
-                <a href={maps.url} target="_blank" rel="noopener noreferrer" className="btn btn-gold">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                    <circle cx="12" cy="10" r="3"/>
-                  </svg>
-                  Ver en Maps
-                </a>
                 <a href={googleCalendar.url} target="_blank" rel="noopener noreferrer" className="btn btn-outline-light">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/>
@@ -82,6 +75,7 @@ export default function Location({ config }) {
               )}
             </div>
           </div>
+
         </div>
       </div>
     </section>

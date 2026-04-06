@@ -11,8 +11,8 @@
   --color-neutral: #8B6B4A;
   --color-neutral-light: #A8896A;
   --color-accent: #C96A3D;
-  --color-gold: #C6A75E;
-  --color-gold-light: #D4BC80;
+  --color-gold: #D4AF37;
+  --color-gold-light: #E0C565;
   --color-white: #FAFAF7;
   --color-dark: #1E2310;
   --color-dark-mid: #2C3018;
@@ -74,6 +74,54 @@ input, textarea, select { font-family: var(--font-body); }
   background-image: radial-gradient(ellipse at 50% 0%, rgba(198,167,94,0.03) 0%, transparent 70%);
 }
 
+/* ─── TEXTURA LINO / LIENZO ─── */
+/*
+ * .linen-texture       → fondo beige con trama de lino (secciones claras)
+ * .linen-texture-dark  → trama sutil sobre fondo oscuro existente
+ *
+ * La textura real se inyecta como SVG inline con feTurbulence
+ * desde el componente LinenSVG (en App.jsx). Las clases CSS
+ * solo referencian el filtro via url(#linen-filter).
+ */
+.linen-texture,
+.linen-texture-dark {
+  position: relative;
+}
+
+.linen-texture::after,
+.linen-texture-dark::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: url('/linen-texture.png');
+  background-repeat: repeat;
+  background-size: 320px 320px;
+}
+
+/* Variante clara: fondo beige lino */
+.linen-texture {
+  background-color: var(--color-secondary);
+}
+.linen-texture::after {
+  opacity: 0.45;
+  mix-blend-mode: multiply;
+}
+
+/* Variante oscura: invierte la textura para que se note sobre negro */
+.linen-texture-dark::after {
+  filter: invert(1);
+  opacity: 0.12;
+}
+
+/* Hijos sobre la capa de textura */
+.linen-texture > *,
+.linen-texture-dark > * {
+  position: relative;
+  z-index: 1;
+}
+
 /* ─── CONTENEDOR ─── */
 .container {
   max-width: var(--container-max);
@@ -98,7 +146,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 16px;
 }
 .section-eyebrow-light { color: rgba(255,255,255,0.45); }
-.section-eyebrow-dark  { color: rgba(255,255,255,0.45); }
+.section-eyebrow-dark  { color: var(--color-text-light); }
 .section-eyebrow-gold  { color: var(--color-gold); }
 
 .section-heading {
@@ -138,20 +186,19 @@ h1, h2, h3, h4, h5, h6 {
 .divider::before, .divider::after {
   content: '';
   flex: 1;
-  height: 1px;
+  height: 2px;
   max-width: 80px;
 }
 .divider-light::before, .divider-light::after {
-  background: linear-gradient(to right, transparent, rgba(198,167,94,0.6), transparent);
+  background: linear-gradient(to right, transparent, rgba(198,167,94,0.5), transparent);
 }
 .divider-dark::before, .divider-dark::after {
-  background: linear-gradient(to right, transparent, var(--color-gold), transparent);
+  background: linear-gradient(to right, transparent, rgba(198,167,94,0.5), transparent);
 }
 .divider-icon {
-  font-family: var(--font-title);
-  font-size: 1.2rem;
-  font-style: italic;
-  letter-spacing: 0.15em;
+  font-size: 0.7rem;
+  color: var(--color-gold);
+  opacity: 0.6;
 }
 .divider-light .divider-icon { color: var(--color-gold); }
 .divider-dark .divider-icon  { color: var(--color-gold); }
@@ -334,6 +381,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ─── SEPARADORES ENTRE SECCIONES ─── */
+/* Línea superior (fondo oscuro → dorado se desvanece) */
 .section + .section:not(.about-section)::before,
 .quote-section + .section::before {
   content: '';
@@ -341,11 +389,19 @@ h1, h2, h3, h4, h5, h6 {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 1px;
+  width: 2px;
   height: 48px;
-  background: linear-gradient(to bottom, rgba(198,167,94,0.25), transparent);
+  background: linear-gradient(to bottom, rgba(198,167,94,0.35), transparent);
   pointer-events: none;
-  z-index: 1;
+  z-index: 10;
+}
+
+
+@media (min-width: 769px) {
+  .section + .section:not(.about-section)::before,
+  .quote-section + .section::before {
+    height: 80px;
+  }
 }
 
 /* ─── SCROLLBAR ─── */

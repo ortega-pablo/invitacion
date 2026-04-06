@@ -79,7 +79,7 @@ export default function Gifts({ config }) {
               <p className="gifts-sub">{texts.giftsSubtitle}</p>
               <div className="gifts-divider">
                 <div className="gifts-divider-line" />
-                <span className="gifts-divider-icon">🎁</span>
+                <span className="gifts-divider-icon">✦</span>
                 <div className="gifts-divider-line" />
               </div>
               <div className="gifts-stats">
