@@ -58,7 +58,7 @@ export const weddingConfig = {
   ticket: {
     currency: "USD",
     adultPrice: 70,
-    childPrice: 35,         // niños de 3 a 10 años
+    childPrice: 35, // niños de 3 a 10 años
     childAgeRange: "3 a 10 años",
     paymentDeadline: "31 de agosto de 2026",
     // Datos de transferencia / pago
@@ -96,7 +96,8 @@ export const weddingConfig = {
   rsvpSheet: {
     // URL de tu Google Apps Script (web app) para enviar el form
     // Ver: /docs/GOOGLE_APPS_SCRIPT.md para instrucciones de configuración
-    scriptUrl: "https://script.google.com/macros/s/AKfycbwYgiwv6GNAhuD5Nr3p1nvm277c1g0dqfxk8EhDIItb0yyiD_Hu0hWE49iBh7d_NbcMAQ/exec",
+    scriptUrl:
+      "https://script.google.com/macros/s/AKfycbwYgiwv6GNAhuD5Nr3p1nvm277c1g0dqfxk8EhDIItb0yyiD_Hu0hWE49iBh7d_NbcMAQ/exec",
     // URL directa al Google Sheet (para el admin)
     sheetUrl: "https://docs.google.com/spreadsheets/d/TU_SHEET_ID_RSVP",
   },
@@ -105,7 +106,8 @@ export const weddingConfig = {
   // 🎵 GOOGLE SHEETS – SUGERENCIAS DE CANCIONES
   // ─────────────────────────────────────────────
   songsSheet: {
-    scriptUrl: "https://script.google.com/macros/s/AKfycbzgiiTd7nocQAEtnLm1qbqfDDdOVwbE5staBnAKggLz1n6VtHCkIvlViJl2tYoY4xo/exec",
+    scriptUrl:
+      "https://script.google.com/macros/s/AKfycbzgiiTd7nocQAEtnLm1qbqfDDdOVwbE5staBnAKggLz1n6VtHCkIvlViJl2tYoY4xo/exec",
     sheetUrl: "https://docs.google.com/spreadsheets/d/TU_SHEET_ID_SONGS",
   },
 
@@ -114,7 +116,8 @@ export const weddingConfig = {
   // ─────────────────────────────────────────────
   giftsSheet: {
     // Script URL para leer/marcar regalos
-    scriptUrl: "https://script.google.com/macros/s/AKfycbx7OlDi-6DYIf9WxIEdtFcMGyzB0jM7ID3ot5CUBQk_vj5nN3w65bqJ9kO2QR-tE_xP/exec",
+    scriptUrl:
+      "https://script.google.com/macros/s/AKfycbx7OlDi-6DYIf9WxIEdtFcMGyzB0jM7ID3ot5CUBQk_vj5nN3w65bqJ9kO2QR-tE_xP/exec",
     sheetUrl: "https://docs.google.com/spreadsheets/d/TU_SHEET_ID_GIFTS",
     // Lista de regalos (también visible en el Sheet)
     // Campos: id, name, description, price, imageUrl (opcional), purchased
@@ -192,7 +195,8 @@ export const weddingConfig = {
   dressCode: {
     title: "Dress Code",
     subtitle: "Elegante · Sunset & noche",
-    description: "Empezamos al atardecer y seguimos de noche, así que la idea es un look elegante, en sintonía con el clima del evento. Buscamos que todos se sientan cómodos.",
+    description:
+      "Empezamos al atardecer y seguimos de noche, así que la idea es un look elegante, en sintonía con el clima del evento. Buscamos que todos se sientan cómodos.",
     paletteText: "Verdes, neutros cálidos y tonos tierra",
   },
 
@@ -205,23 +209,26 @@ export const weddingConfig = {
     // Podés editar cuáles mostrar y en qué orden
     // Podés reordenar o quitar fotos de esta lista para la galería
     photos: [
-      { file: "photo_001.jpg", alt: "Pablo y Camila" },
-      { file: "photo_002.jpg", alt: "Pablo y Camila" },
-      { file: "photo_003.jpg", alt: "Pablo y Camila" },
-      { file: "photo_004.jpg", alt: "Pablo y Camila" },
-      { file: "photo_005.jpg", alt: "Pablo y Camila" },
-      { file: "photo_006.jpg", alt: "Pablo y Camila" },
-      { file: "photo_007.jpg", alt: "Pablo y Camila" },
-      { file: "photo_008.jpg", alt: "Pablo y Camila" },
-      { file: "photo_009.jpg", alt: "Pablo y Camila" },
-      { file: "photo_012.jpg", alt: "Pablo y Camila" },
-      { file: "photo_013.jpg", alt: "Pablo y Camila" },
-      { file: "photo_014.jpg", alt: "Pablo y Camila" },
+      { file: "photo1.jpeg", alt: "Pablo y Camila", large: true },
+      { file: "photo5.jpg", alt: "Pablo y Camila" },
+      { file: "photo6.jpg", alt: "Pablo y Camila" },
+      { file: "photo7.jpg", alt: "Pablo y Camila" },
+      { file: "photo8.jpg", alt: "Pablo y Camila" },
+      { file: "photo9.jpg", alt: "Pablo y Camila", large: true },
+      { file: "photo10.jpg", alt: "Pablo y Camila" },
+      { file: "photo11.jpg", alt: "Pablo y Camila" },
+      { file: "photo12.jpg", alt: "Pablo y Camila", large: true },
+      { file: "photo13.jpg", alt: "Pablo y Camila" },
+      { file: "photo15.jpeg", alt: "Pablo y Camila" },
+      { file: "photo16.jpg", alt: "Pablo y Camila" },
+      { file: "photo17.jpg", alt: "Pablo y Camila" },
+      { file: "photo19.jpg", alt: "Pablo y Camila" },
+      { file: "photo21.jpg", alt: "Pablo y Camila" },
     ],
     // Foto del hero (fondo principal) — elegí la más impactante
-    heroPhoto: "photo_010.jpg",
+    heroPhoto: "anillos.jpg",
     // Foto del about section
-    couplePhoto: "photo_011.jpg",
+    couplePhoto: "atardecer.jpg",
   },
 
   // ─────────────────────────────────────────────
@@ -229,11 +236,11 @@ export const weddingConfig = {
   // ─────────────────────────────────────────────
   theme: {
     colors: {
-      primary: "#4E5B31",       // Verde oliva
-      secondary: "#E8DFC9",     // Beige lino
-      neutral: "#8B6B4A",       // Madera natural
-      accent: "#C96A3D",        // Terracota
-      gold: "#C6A75E",          // Dorado
+      primary: "#4E5B31", // Verde oliva
+      secondary: "#E8DFC9", // Beige lino
+      neutral: "#8B6B4A", // Madera natural
+      accent: "#C96A3D", // Terracota
+      gold: "#C6A75E", // Dorado
       white: "#FAFAF7",
       dark: "#2C3018",
     },
@@ -247,7 +254,8 @@ export const weddingConfig = {
   // 📝 TEXTOS PERSONALIZABLES
   // ─────────────────────────────────────────────
   texts: {
-    quoteText: "Dicen que a los 15 años son las bodas de cristal, nosotros preferimos que sean las bodas de '¡Por fin, carajo!'.",
+    quoteText:
+      "Dicen que a los 15 años son las bodas de cristal, nosotros preferimos que sean las bodas de '¡Por fin, carajo!'.",
     heroTagline: "¡Nos casamos!",
     heroSubtitle: "Queremos compartir este día tan especial con vos",
     aboutTitle: "El plan",
@@ -260,7 +268,8 @@ export const weddingConfig = {
     songsTitle: "Sugerí una canción",
     songsSubtitle: "¡Ayudanos a armar la playlist perfecta!",
     giftsTitle: "Lista de regalos",
-    giftsSubtitle: "Sabemos que elegir un regalo a veces no es fácil, por eso armamos una lista para quienes quieran acompañarnos también de esa forma",
+    giftsSubtitle:
+      "Sabemos que elegir un regalo a veces no es fácil, por eso armamos una lista para quienes quieran acompañarnos también de esa forma",
     mapTitle: "¿Cómo llegar?",
     footerMessage: "Con amor,",
   },
