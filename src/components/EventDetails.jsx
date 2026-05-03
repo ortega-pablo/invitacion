@@ -31,8 +31,8 @@ export default function EventDetails({ config }) {
   const ref = useRevealChildren();
 
   const cards = [
-    { icon: ICON_CLOCK,    label: 'Recepción',          title: '20:00 hs', sub: 'Inicio del evento' },
-    { icon: ICON_CALENDAR, label: texts.ceremonyLabel,   title: '20:30 hs', sub: 'Ceremonia civil' },
+    { icon: ICON_CLOCK,    label: 'Recepción',          title: '19:30 hs', sub: 'Inicio del evento' },
+    { icon: ICON_CALENDAR, label: texts.ceremonyLabel,   title: '20:15 hs', sub: 'Ceremonia civil' },
     { icon: ICON_PARTY,    label: 'Cena',               title: '22:00 hs', sub: 'Cena y brindis' },
     { icon: ICON_PARTY,    label: 'Fiesta',             title: '23:00 hs', sub: 'Música y baile' },
   ];

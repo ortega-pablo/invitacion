@@ -10,6 +10,9 @@ export default function DressCode({ config }) {
       <div ref={ref} className="dresscode-inner reveal">
         <span className="section-eyebrow dresscode-eyebrow">Indumentaria</span>
         <h2 className="dresscode-heading">{dressCode.title}</h2>
+        {dressCode.subtitle && (
+          <p className="dresscode-subtitle">{dressCode.subtitle}</p>
+        )}
 
         <div className="dresscode-divider">
           <div className="dresscode-divider-line" />
@@ -19,18 +22,11 @@ export default function DressCode({ config }) {
 
         <p className="dresscode-desc">{dressCode.description}</p>
 
-        {dressCode.suggestedColors?.length > 0 && (
-          <>
+        {dressCode.paletteText && (
+          <div className="dresscode-palette-text">
             <span className="dresscode-palette-label">Paleta sugerida</span>
-            <div className="dresscode-swatches">
-              {dressCode.suggestedColors.map((color, i) => (
-                <div key={color} className="swatch-item">
-                  <div className="swatch-circle" style={{ background: color }} title={dressCode.colorLabels?.[i]} />
-                  <span className="swatch-name">{dressCode.colorLabels?.[i] || ''}</span>
-                </div>
-              ))}
-            </div>
-          </>
+            <p className="dresscode-palette-value">{dressCode.paletteText}</p>
+          </div>
         )}
 
         <div className="dresscode-warning">
@@ -38,7 +34,7 @@ export default function DressCode({ config }) {
             <circle cx="12" cy="12" r="10"/>
             <line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
           </svg>
-          Te pedimos por favor evitar el color blanco en vestidos
+          Para cuidar la estética general, te pedimos evitar el blanco y plateado en vestidos, y los azules medios en trajes
         </div>
       </div>
     </section>

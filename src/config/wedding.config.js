@@ -39,7 +39,7 @@ export const weddingConfig = {
     // Fecha del casamiento (formato ISO: YYYY-MM-DD)
     date: "2026-10-10",
     // Hora de inicio de la ceremonia
-    ceremonyTime: "20:30",
+    ceremonyTime: "20:15",
     // Hora de inicio del festejo (recepción)
     receptionTime: "23:00",
     // Nombre del salón / lugar
@@ -77,7 +77,7 @@ export const weddingConfig = {
     // Generá tu link en: https://calendar.google.com/calendar/r/eventedit
     // O usá este formato:
     // https://calendar.google.com/calendar/render?action=TEMPLATE&text=NOMBRE&dates=INICIO/FIN&details=DESCRIPCION&location=LUGAR
-    url: "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Casamiento+Pablo+%26+Camila&dates=20261010T230000Z/20261011T070000Z&details=¡Celebremos+juntos!&location=Estancia+Ludmila,+Callejón+Villanueva+1023,+Luján+de+Cuyo,+Mendoza",
+    url: "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Casamiento+Pablo+%26+Camila&dates=20261010T223000Z/20261011T070000Z&details=¡Celebremos+juntos!&location=Estancia+Ludmila,+Callejón+Villanueva+1023,+Luján+de+Cuyo,+Mendoza",
   },
 
   // ─────────────────────────────────────────────
@@ -191,9 +191,9 @@ export const weddingConfig = {
   // ─────────────────────────────────────────────
   dressCode: {
     title: "Dress Code",
-    description: "El evento es de etiqueta formal y tiene una paleta de colores como temática. Te invitamos a inspirarte en estos tonos para tu vestimenta, aunque no es obligatorio.",
-    suggestedColors: ["#4E5B31", "#E8DFC9", "#8B6B4A", "#C96A3D"],
-    colorLabels: ["Verde olivo", "Arena", "Chocolate", "Terracota"],
+    subtitle: "Elegante · Sunset & noche",
+    description: "Empezamos al atardecer y seguimos de noche, así que la idea es un look elegante, en sintonía con el clima del evento. Buscamos que todos se sientan cómodos.",
+    paletteText: "Verdes, neutros cálidos y tonos tierra",
   },
 
   // ─────────────────────────────────────────────
@@ -260,7 +260,7 @@ export const weddingConfig = {
     songsTitle: "Sugerí una canción",
     songsSubtitle: "¡Ayudanos a armar la playlist perfecta!",
     giftsTitle: "Lista de regalos",
-    giftsSubtitle: "Si querés hacernos un regalo, acá está nuestra lista",
+    giftsSubtitle: "Sabemos que elegir un regalo a veces no es fácil, por eso armamos una lista para quienes quieran acompañarnos también de esa forma",
     mapTitle: "¿Cómo llegar?",
     footerMessage: "Con amor,",
   },

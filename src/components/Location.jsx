@@ -33,7 +33,7 @@ export default function Location({ config }) {
                     <span className="location-time-dot dot-ceremony" />
                     Inicio
                   </span>
-                  <span className="location-time-value">20:00 hs</span>
+                  <span className="location-time-value">19:30 hs</span>
                 </div>
                 <div className="location-time-block">
                   <span className="location-time-label">
