@@ -31,12 +31,12 @@ export default function App() {
         <DressCode config={config} />
 
         <section id="gifts" className="section" style={{ minHeight: 'auto', padding: '80px 40px' }}>
-          <div style={{ textAlign: 'center' }}>
+          <div style={{ textAlign: 'center', maxWidth: 600, margin: '0 auto' }}>
             <span className="section-eyebrow section-eyebrow-light">Lista de regalos</span>
             <h2 style={{ fontFamily: 'var(--font-title)', fontSize: 'clamp(2.4rem, 5vw, 4rem)', fontWeight: 300, color: 'white', marginBottom: 16 }}>
               {config.texts.giftsTitle}
             </h2>
-            <p style={{ fontSize: '0.88rem', color: 'rgba(255,255,255,0.45)', marginBottom: 32 }}>
+            <p style={{ fontSize: '1.05rem', color: 'rgba(255,255,255,0.55)', lineHeight: 1.8, fontWeight: 300, marginBottom: 40 }}>
               {config.texts.giftsSubtitle}
             </p>
             <Link to="/regalos" className="btn btn-gold">

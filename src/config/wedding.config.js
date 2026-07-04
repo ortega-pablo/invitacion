@@ -64,7 +64,9 @@ export const weddingConfig = {
     // Datos de transferencia / pago
     paymentInfo: {
       alias: "ALIAS.CBU.AQUI",
-      cbu: "0000000000000000000000",
+      // CBU de la cuenta en dólares para la transferencia
+      cbu: "0070246331004008170174",
+      accountLabel: "Cuenta en dólares",
       bankName: "Banco",
       holder: "Pablo Ortega",
     },
@@ -119,6 +121,11 @@ export const weddingConfig = {
     scriptUrl:
       "https://script.google.com/macros/s/AKfycbx7OlDi-6DYIf9WxIEdtFcMGyzB0jM7ID3ot5CUBQk_vj5nN3w65bqJ9kO2QR-tE_xP/exec",
     sheetUrl: "https://docs.google.com/spreadsheets/d/TU_SHEET_ID_GIFTS",
+    // Cuenta para quienes prefieran hacer un regalo por transferencia
+    paymentInfo: {
+      cbu: "0070246330004021823568",
+      holder: "Pablo Ortega",
+    },
     // Lista de regalos (también visible en el Sheet)
     // Campos: id, name, description, price, imageUrl (opcional), purchased
     items: [
@@ -269,7 +276,7 @@ export const weddingConfig = {
     songsSubtitle: "¡Ayudanos a armar la playlist perfecta!",
     giftsTitle: "Lista de regalos",
     giftsSubtitle:
-      "Sabemos que elegir un regalo a veces no es fácil, por eso armamos una lista para quienes quieran acompañarnos también de esa forma",
+      "Tu presencia ya es nuestro mejor regalo. Pero sabemos que algunos van a querer sumarse con un presente y, aunque no es obligatorio, armamos una lista con opciones para que te des una idea de qué nos gustaría. Y si preferís no elegir algo puntual, más abajo te dejamos una cuenta para hacerlo por transferencia.",
     mapTitle: "¿Cómo llegar?",
     footerMessage: "Con amor,",
   },

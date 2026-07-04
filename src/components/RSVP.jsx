@@ -16,9 +16,19 @@ const emptyGuest = () => ({ firstName: '', lastName: '', dni: '', type: 'adulto'
 
 export default function RSVP({ config }) {
   const { rsvpSheet, event, texts, ticket } = config;
+  const { paymentInfo } = ticket;
   const [guests, setGuests] = useState([emptyGuest()]);
   const [status, setStatus] = useState('idle');
   const ref = useReveal();
+
+  const copyCbu = async () => {
+    try {
+      await navigator.clipboard.writeText(paymentInfo.cbu);
+      showToast('CBU copiado al portapapeles', 'success');
+    } catch {
+      showToast('No se pudo copiar el CBU', 'error');
+    }
+  };
 
   const addGuest    = () => setGuests((g) => [...g, emptyGuest()]);
   const removeGuest = (i) => setGuests((g) => g.filter((_, idx) => idx !== i));
@@ -174,6 +184,18 @@ export default function RSVP({ config }) {
           <button type="submit" className={`btn btn-gold rsvp-submit ${status === 'loading' ? 'loading' : ''}`} disabled={status === 'loading'}>
             {status === 'loading' ? (<><span className="spinner spinner-dark" />Enviando...</>) : 'Confirmar asistencia'}
           </button>
+
+          <div className="rsvp-payment">
+            <span className="rsvp-payment-label">Datos para la transferencia</span>
+            <span className="rsvp-payment-account">CBU · {paymentInfo.accountLabel}</span>
+            <button type="button" className="rsvp-cbu-copy" onClick={copyCbu} title="Copiar CBU">
+              <span className="rsvp-cbu">{paymentInfo.cbu}</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+              </svg>
+            </button>
+          </div>
         </form>
       </div>
     </section>
