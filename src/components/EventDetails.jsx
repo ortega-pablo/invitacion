@@ -1,4 +1,5 @@
 import { useRevealChildren } from '../hooks/useReveal';
+import { showToast } from '../utils/toast';
 import './EventDetails.css';
 
 const ICON_CLOCK = (
@@ -29,6 +30,16 @@ const ICON_CALENDAR = (
 export default function EventDetails({ config }) {
   const { event, texts, ticket, googleCalendar } = config;
   const ref = useRevealChildren();
+  const { paymentInfo } = ticket;
+
+  const copyCbu = async () => {
+    try {
+      await navigator.clipboard.writeText(paymentInfo.cbu);
+      showToast('CBU copiado al portapapeles', 'success');
+    } catch {
+      showToast('No se pudo copiar el CBU', 'error');
+    }
+  };
 
   const cards = [
     { icon: ICON_CLOCK,    label: 'Recepción',          title: '19:30 hs', sub: 'Inicio del evento' },
@@ -100,6 +111,23 @@ export default function EventDetails({ config }) {
               <div className="ticket-info-item">
                 <span className="ticket-info-label">Cancelación hasta</span>
                 <span className="ticket-info-value">{ticket.paymentDeadline}</span>
+              </div>
+              <div className="ticket-info-item ticket-transfer">
+                <span className="ticket-info-label">
+                  CBU · {paymentInfo.accountLabel}
+                </span>
+                <button
+                  type="button"
+                  className="ticket-cbu-copy"
+                  onClick={copyCbu}
+                  title="Copiar CBU"
+                >
+                  <span className="ticket-cbu">{paymentInfo.cbu}</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                  </svg>
+                </button>
               </div>
             </div>
           </div>

@@ -10,13 +10,13 @@ function GiftCard({ item, onSelect, loading }) {
     <div className={`gift-card ${item.reservado ? 'purchased' : ''}`}>
       <div className="gift-card-inner">
         <h3 className="gift-name">{item.nombre}</h3>
-        {item.descripcion && <p className="gift-desc">{item.descripcion}</p>}
-        {item.precio > 0 && <p className="gift-price">$ {item.precio}</p>}
-        {item.link && (
-          <a href={item.link} target="_blank" rel="noopener noreferrer" className="gift-link">
-            Ver referencia
-          </a>
-        )}
+        <div className="gift-link-row">
+          {item.link && (
+            <a href={item.link} target="_blank" rel="noopener noreferrer" className="gift-link">
+              Ver referencia
+            </a>
+          )}
+        </div>
         <div className="gift-footer">
           {item.reservado ? (
             <div className="gift-purchased-tag">
@@ -39,10 +39,20 @@ function GiftCard({ item, onSelect, loading }) {
 
 export default function GiftsPage() {
   const { giftsSheet, couple, texts } = weddingConfig;
+  const { paymentInfo } = giftsSheet;
   const [items, setItems] = useState([]);
   const [loadingId, setLoadingId] = useState(null);
   const [confirmItem, setConfirmItem] = useState(null);
   const [fetching, setFetching] = useState(true);
+
+  const copyCbu = async () => {
+    try {
+      await navigator.clipboard.writeText(paymentInfo.cbu);
+      showToast('CBU copiado al portapapeles', 'success');
+    } catch {
+      showToast('No se pudo copiar el CBU', 'error');
+    }
+  };
 
   useEffect(() => {
     if (giftsSheet.scriptUrl.includes('TU_SCRIPT')) {
@@ -136,6 +146,25 @@ export default function GiftsPage() {
               {items.map((item) => (
                 <GiftCard key={item.id} item={item} onSelect={setConfirmItem} loading={loadingId} />
               ))}
+            </div>
+          )}
+
+          {paymentInfo?.cbu && (
+            <div className="gifts-payment">
+              <span className="gifts-payment-label">¿Preferís hacer tu regalo por transferencia?</span>
+              <p className="gifts-payment-note">
+                Te dejamos nuestra cuenta. ¡Cualquier gesto lo recibimos con muchísimo cariño!
+              </p>
+              <button type="button" className="gifts-cbu-copy" onClick={copyCbu} title="Copiar CBU">
+                <span className="gifts-cbu">{paymentInfo.cbu}</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                </svg>
+              </button>
+              {paymentInfo.holder && (
+                <span className="gifts-payment-holder">Titular: {paymentInfo.holder}</span>
+              )}
             </div>
           )}
         </div>

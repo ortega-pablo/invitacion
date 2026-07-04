@@ -58,6 +58,8 @@
   overflow: hidden;
   transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s ease, border-color 0.3s ease;
   border-bottom: 2px solid transparent;
+  display: flex;
+  flex-direction: column;
 }
 .gift-card:not(.purchased):hover {
   transform: translateY(-5px);
@@ -68,7 +70,7 @@
 
 .gift-card-inner {
   padding: 24px 22px;
-  display: flex; flex-direction: column; gap: 6px; height: 100%;
+  display: flex; flex-direction: column; flex: 1;
 }
 
 .gift-tag {
@@ -89,8 +91,14 @@
   font-size: 1.35rem;
   font-weight: 400;
   color: white;
-  line-height: 1.2;
+  line-height: 1.25;
   margin-top: 4px;
+  /* Reserva siempre 2 renglones para que todas las tarjetas midan igual */
+  min-height: calc(1.25em * 2);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .gift-desc {
@@ -106,6 +114,15 @@
   color: var(--color-gold-light);
 }
 
+/* Fila reservada para el link: se empuja hacia abajo junto con el botón,
+   y mantiene 1 renglón aunque el regalo no tenga link */
+.gift-link-row {
+  display: flex;
+  align-items: center;
+  min-height: 1.1rem;
+  margin-top: auto;
+}
+
 .gift-link {
   font-size: 0.75rem;
   font-weight: 600;
@@ -117,7 +134,8 @@
 }
 .gift-link:hover { opacity: 1; }
 
-.gift-footer { margin-top: 14px; }
+/* Botón justo debajo del link, ambos anclados al fondo de la tarjeta */
+.gift-footer { margin-top: 12px; }
 
 .gift-btn { width: 100%; font-size: 0.72rem; padding: 11px 16px; }
 .gift-btn.loading { opacity: 0.7; cursor: not-allowed; }
@@ -240,7 +258,71 @@
   color: rgba(255,255,255,0.4);
 }
 
+/* Cuenta para regalo por transferencia */
+.gifts-payment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  max-width: 520px;
+  margin: 56px auto 0;
+  padding: 32px 28px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+.gifts-payment-label {
+  font-family: var(--font-title);
+  font-size: clamp(1.3rem, 3vw, 1.7rem);
+  font-weight: 300;
+  color: white;
+}
+
+.gifts-payment-note {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 6px;
+}
+
+.gifts-cbu-copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  background: rgba(198,167,94,0.08);
+  border: 1px solid rgba(198,167,94,0.3);
+  border-radius: var(--radius-md);
+  color: var(--color-gold-light);
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.gifts-cbu-copy:hover {
+  background: rgba(198,167,94,0.16);
+  border-color: var(--color-gold);
+}
+
+.gifts-cbu {
+  font-family: monospace;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.92);
+}
+
+.gifts-cbu-copy svg { flex-shrink: 0; opacity: 0.75; }
+
+.gifts-payment-holder {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.4);
+  margin-top: 2px;
+}
+
 @media (max-width: 600px) {
   .gifts-page-header { padding: 16px 20px; }
   .gifts-page-brand { display: none; }
+  .gifts-cbu { font-size: 0.8rem; word-break: break-all; }
 }
